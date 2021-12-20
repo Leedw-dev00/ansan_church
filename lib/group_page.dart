@@ -77,7 +77,7 @@ class _GroupPageState extends State<GroupPage> {
                 ),
                 SizedBox(height: 50),
                 Container(
-                  width: MediaQuery.of(context).size.width,
+                  width: Get.width,
                   decoration: BoxDecoration(
                       color: Color(0xFFF9f9f9),
                       borderRadius: BorderRadius.only(
@@ -104,7 +104,7 @@ class _GroupPageState extends State<GroupPage> {
                               height: MediaQuery.of(context).size.height - 200,
                               child: ListView.builder(
                                   controller: subController,
-                                  itemCount: 12,
+                                  itemCount: 10,
                                   itemBuilder:
                                       (BuildContext context, int index) {
                                     return Padding(

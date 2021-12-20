@@ -1,7 +1,6 @@
 import 'package:custom_check_box/custom_check_box.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import 'datas/member_data.dart';
 import 'models/user_model.dart';
 
@@ -15,6 +14,9 @@ class ApprovalSub extends StatefulWidget {
 class _ApprovalSubState extends State<ApprovalSub> {
   final User user;
   _ApprovalSubState(this.user);
+
+  final _valueList = ['추구 그룹을 선택하세요', '1그룹', '2그룹', '3그룹', '4그룹', '5그룹', '6그룹', '7그룹', '8그룹', '9그룹', '10그룹'];
+  String _selectedValue = '추구 그룹을 선택하세요';
 
   bool shouldCheck = false;
   bool man = false;
@@ -96,23 +98,44 @@ class _ApprovalSubState extends State<ApprovalSub> {
                 SizedBox(width: 20),
                 Expanded(
                   flex: 8,
-                  child: TextField(
-                    controller: groupController,
-                    style: TextStyle(
-                      fontSize: 15,
-                    ),
-                    decoration: InputDecoration(
-                      border: InputBorder.none,
-                      hintText: "추구 그룹명을 입력 해주세요.",
-                      hintStyle: TextStyle(
-                        fontSize: 12,
-                      ),
-                      fillColor: Color(0xFFF7F7F7),
-                      filled: true,
-                      contentPadding:
-                          EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 12.0),
-                    ),
-                  ),
+                  child: DropdownButtonFormField<String>(
+                    value: _selectedValue,
+                    onChanged: (String? newValue){
+                      setState(() {
+                        _selectedValue = newValue!;
+                      });
+                      print(_selectedValue);
+                    },
+                    items: <String>[
+                      '추구 그룹을 선택하세요', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10'
+                    ].map<DropdownMenuItem<String>>((String value) {
+                      return DropdownMenuItem<String>(
+                        value: value,
+                        child: Text('$value 그'),
+                      );
+                    }).toList(),
+
+
+
+                  )
+
+                  // TextField(
+                  //   controller: groupController,
+                  //   style: TextStyle(
+                  //     fontSize: 15,
+                  //   ),
+                  //   decoration: InputDecoration(
+                  //     border: InputBorder.none,
+                  //     hintText: "추구 그룹명을 입력 해주세요.",
+                  //     hintStyle: TextStyle(
+                  //       fontSize: 12,
+                  //     ),
+                  //     fillColor: Color(0xFFF7F7F7),
+                  //     filled: true,
+                  //     contentPadding:
+                  //         EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 12.0),
+                  //   ),
+                  // ),
                 ),
               ],
             ),
@@ -235,8 +258,8 @@ class _ApprovalSubState extends State<ApprovalSub> {
             InkWell(
               onTap: () {
                 String gender = man ? "형제" : "자매";
-                if (groupController.text != "") {  //   && areaController.text != ""
-                  MemberData.checkUser(user.id, groupController.text,
+                if (_selectedValue != "추구 그룹을 선택하세요") {  //   && areaController.text != ""
+                  MemberData.checkUser(user.id, _selectedValue,
                           areaController.text, shouldCheck, gender)
                       .then((value) {
                     if (value) {

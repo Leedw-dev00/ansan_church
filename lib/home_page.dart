@@ -34,6 +34,7 @@ class _HomeState extends State<Home> {
       id: "0",
       date: "0000-00-00",
       content2: "content2",
+      footnote: "footnote",
       lifeStudy: "lifestudy");
   List<Testimony> testimonyList = [];
   List<NoticeModel> noticeList = [];
@@ -58,6 +59,7 @@ class _HomeState extends State<Home> {
             id: "0",
             date: DateFormat("yyyy-MM-dd").format(DateTime.now()),
             content2: "오늘의 진도가 없습니다",
+            footnote: "오늘의 각주가 없습니다",
             lifeStudy: "lifestudy");
       } else {
         progressChart = value[0];
@@ -379,7 +381,7 @@ class _HomeState extends State<Home> {
                                               // ),
                                               // SizedBox(height: 5),
                                               Text(
-                                                progressChart.content2,
+                                                progressChart.footnote,
                                                 style: TextStyle(
                                                   fontFamily: 'NanumSquareR',
                                                   fontSize: 15,

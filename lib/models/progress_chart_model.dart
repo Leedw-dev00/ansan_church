@@ -2,6 +2,7 @@ class ProgressChart {
   String id;
   String date; // 날짜
   String content2; // 신약
+  String footnote;
   String lifeStudy = "";
   String lifeStudyAll = "";
   String lifeStudyAll2 = "";
@@ -12,6 +13,7 @@ class ProgressChart {
     required this.id,
     required this.date,
     required this.content2,
+    required this.footnote,
     this.lifeStudy = "",
     this.lifeStudyAll = "",
     this.lifeStudyAll2 = "",
@@ -24,6 +26,7 @@ class ProgressChart {
       id: json['id'] as String,
       date: json['date'] as String,
       content2: json['content2'] as String,
+      footnote: json['footnote'] as String,
       lifeStudy: json['lifestudy'] == null ? "" : json['lifestudy'] as String,
       lifeStudyAll:
           json['lifestudy_all'] == null ? "" : json['lifestudy_all'] as String,
