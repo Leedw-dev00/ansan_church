@@ -32,6 +32,7 @@ class _JindoChartState extends State<JindoChart> {
       setState(() {
         _pList = value;
       });
+      print('asd$value');
     });
     scrollController =
         ScrollController(initialScrollOffset: (50 * (month - 1)).toDouble());

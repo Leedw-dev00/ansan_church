@@ -238,7 +238,7 @@ class _SignupPageState extends State<SignupPage> {
                                         },
                                       ),
                                       SizedBox(width: 5,),
-                                      Text('선택2 (본문+각)', style:
+                                      Text('선택2 (본문+각주)', style:
                                       TextStyle(
                                           fontSize: 12.0
                                       ),
@@ -267,7 +267,7 @@ class _SignupPageState extends State<SignupPage> {
                                         },
                                       ),
                                       SizedBox(width: 5,),
-                                      Text('선택3 (본문주+각주+라이프스터디)', style:
+                                      Text('선택3 (본문+각주+라이프스터디)', style:
                                       TextStyle(
                                           fontSize: 12.0
                                       ),

@@ -180,7 +180,12 @@ class _LoginPageState extends State<LoginPage> {
                           SizedBox(height: 30),
                           GestureDetector(
                             onTap: () {
-                              _userLogin(phoneController.text);
+                              if(phoneController.text != ""){
+                                _userLogin(phoneController.text);
+                              }else{
+                                Get.snackbar("로그인 실패", "로그인에 실패하였습니다\n아이디 또는 비밀번호 확인 후 다시 시도해주세요");
+                              }
+
                             },
                             child: Container(
                               width: MediaQuery.of(context).size.width,

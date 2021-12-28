@@ -26,7 +26,7 @@ class ProgressChart {
       id: json['id'] as String,
       date: json['date'] as String,
       content2: json['content2'] as String,
-      footnote: json['footnote'] as String,
+      footnote: json['footnote'] == null ? "" : json['footnote'] as String,
       lifeStudy: json['lifestudy'] == null ? "" : json['lifestudy'] as String,
       lifeStudyAll:
           json['lifestudy_all'] == null ? "" : json['lifestudy_all'] as String,

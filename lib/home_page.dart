@@ -17,7 +17,7 @@ import 'datas/testimony_data.dart';
 import 'login_page.dart';
 
 
-
+final controller = Get.put(ReactiveController());
 class Home extends StatefulWidget {
   const Home({Key? key, required this.callback}) : super(key: key);
   final Function(int) callback;
@@ -543,7 +543,7 @@ class _HomeState extends State<Home> {
                                                         alignment: Alignment.center,
                                                         child: FittedBox(
                                                           child: Text(
-                                                            '스터디 링크1',
+                                                            'LS 전체1',
                                                             style: TextStyle(
                                                                 fontFamily:
                                                                 'NanumSquareEB',
@@ -576,7 +576,7 @@ class _HomeState extends State<Home> {
                                                         alignment: Alignment.center,
                                                         child: FittedBox(
                                                           child: Text(
-                                                            '스터디 링크2',
+                                                            'LS 전체2',
                                                             style: TextStyle(
                                                                 fontFamily:
                                                                 'NanumSquareEB',
@@ -970,7 +970,7 @@ class _HomeState extends State<Home> {
                                                         SizedBox(height: 20),
                                                       ],
                                                     ),
-                                                  ),
+                                                ),
                                                 );
                                               },
                                               child: Text(

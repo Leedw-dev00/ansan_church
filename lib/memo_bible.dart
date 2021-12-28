@@ -137,8 +137,7 @@ class _MemoBibleState extends State<MemoBible> {
                                               ? EdgeInsets.all(20)
                                               : EdgeInsets.only(
                                                   left: 20, right: 20),
-                                          width:
-                                              MediaQuery.of(context).size.width,
+                                          width: Get.width,
                                           decoration: BoxDecoration(
                                             color: Colors.white,
                                             borderRadius:
@@ -182,36 +181,47 @@ class _MemoBibleState extends State<MemoBible> {
                                                         MainAxisAlignment
                                                             .spaceBetween,
                                                     children: [
-                                                      Text(
-                                                        bList[index].memo,
-                                                        style: TextStyle(
-                                                          fontFamily:
-                                                              'NanumSquareR',
-                                                          fontSize: 14,
+                                                      Expanded(
+                                                        flex: 10,
+                                                        child: Text(
+                                                          bList[index].memo,
+                                                          style: TextStyle(
+                                                            fontFamily:
+                                                            'NanumSquareR',
+                                                            fontSize: 14,
+                                                          ),
+                                                          overflow:
+                                                          isOpen[index]
+                                                              ? null
+                                                              : TextOverflow
+                                                                  .ellipsis,
+                                                          softWrap:
+                                                          isOpen[index]
+                                                              ? true
+                                                              : false,
+                                                          maxLines:
+                                                          isOpen[index]
+                                                              ? null
+                                                              : 10,
                                                         ),
-                                                        overflow: isOpen[index]
-                                                            ? null
-                                                            : TextOverflow
-                                                                .ellipsis,
-                                                        softWrap: isOpen[index]
-                                                            ? true
-                                                            : false,
-                                                        maxLines: isOpen[index]
-                                                            ? null
-                                                            : 1,
                                                       ),
-                                                      Container(
-                                                        child: Center(
-                                                          child: Icon(
-                                                            isOpen[index]
-                                                                ? CupertinoIcons
-                                                                    .chevron_up
-                                                                : CupertinoIcons
-                                                                    .chevron_down,
-                                                            size: 17,
+                                                      Expanded(
+                                                        flex: 1,
+                                                        child: Container(
+                                                          child: Center(
+                                                            child: Icon(
+                                                              isOpen[index]
+                                                                  ? CupertinoIcons
+                                                                  .chevron_up
+                                                                  : CupertinoIcons
+                                                                  .chevron_down,
+                                                              size: 17,
+                                                            ),
                                                           ),
                                                         ),
                                                       ),
+
+
                                                     ],
                                                   ),
                                                 ],

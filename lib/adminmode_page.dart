@@ -10,6 +10,8 @@ import 'allmember_page.dart';
 import 'group_page.dart';
 import 'lifestudy.dart';
 
+
+
 class AdminMode extends StatefulWidget {
   const AdminMode({Key? key}) : super(key: key);
 
@@ -18,6 +20,7 @@ class AdminMode extends StatefulWidget {
 }
 
 class _AdminModeState extends State<AdminMode> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -433,6 +436,7 @@ class _AdminModeState extends State<AdminMode> {
                                 ),
                               ), //공지사항
                               SizedBox(height: 15),
+
                               GestureDetector(
                                 onTap: () {
                                   Navigator.push(

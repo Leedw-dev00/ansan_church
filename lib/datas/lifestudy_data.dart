@@ -6,13 +6,14 @@ class LifeStudyData {
   static const UPDATE_FOOT_ACTION = "footnote";
 
   static Future<String> updateLifeStudy(
-      String content, String url, String date) async {
+      String content, String url, String url2, String date) async {
     try {
       var map = Map<String, dynamic>();
       map['action'] = UPDATE_ACTION;
       map['content'] = content;
       map['date'] = date;
       map['url'] = url;
+      map['url2'] = url2;
       final response = await http.post(Uri.parse(ROOT), body: map);
       print('User updateLifeStudy Result : ${response.body}');
       if (200 == response.statusCode) {

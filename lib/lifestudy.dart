@@ -64,6 +64,7 @@ class _LifeStudyState extends State<LifeStudy> {
   String _dayValue = '01';
   TextEditingController contentController = TextEditingController();
   TextEditingController urlController = TextEditingController();
+  TextEditingController urlController2 = TextEditingController();
 
   @override
   void initState() {
@@ -251,12 +252,40 @@ class _LifeStudyState extends State<LifeStudy> {
                                   SizedBox(height: 20),
                                   Row(
                                     children: [
-                                      Expanded(flex: 2, child: Text('링크')),
+                                      Expanded(flex: 2, child: Text('LS 전체1')),
                                       SizedBox(width: 20),
                                       Expanded(
                                         flex: 8,
                                         child: TextField(
                                           controller: urlController,
+                                          style: TextStyle(
+                                            fontSize: 15,
+                                          ),
+                                          maxLines: 1,
+                                          decoration: InputDecoration(
+                                            border: InputBorder.none,
+                                            hintText: "링크 주소를 입력해주세요",
+                                            hintStyle: TextStyle(
+                                              fontSize: 12,
+                                            ),
+                                            fillColor: Color(0xFFF7F7F7),
+                                            filled: true,
+                                            contentPadding: EdgeInsets.fromLTRB(
+                                                10.0, 10.0, 10.0, 12.0),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  SizedBox(height: 20),
+                                  Row(
+                                    children: [
+                                      Expanded(flex: 2, child: Text('LS 전체2')),
+                                      SizedBox(width: 20),
+                                      Expanded(
+                                        flex: 8,
+                                        child: TextField(
+                                          controller: urlController2,
                                           style: TextStyle(
                                             fontSize: 15,
                                           ),
@@ -284,6 +313,7 @@ class _LifeStudyState extends State<LifeStudy> {
                                       LifeStudyData.updateLifeStudy(
                                               contentController.text,
                                               urlController.text,
+                                              urlController2.text,
                                               date)
                                           .then((value) {
                                         if (value == "true") {

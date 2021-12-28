@@ -104,7 +104,7 @@ class _GroupPageState extends State<GroupPage> {
                               height: MediaQuery.of(context).size.height - 200,
                               child: ListView.builder(
                                   controller: subController,
-                                  itemCount: 10,
+                                  itemCount: 50,
                                   itemBuilder:
                                       (BuildContext context, int index) {
                                     return Padding(
