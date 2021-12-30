@@ -291,7 +291,7 @@ class _SignupPageState extends State<SignupPage> {
                                       print('success');
                                       Get.off(LoginPage());
                                     } else {
-                                      Get.snackbar("회원가입 실패", "다시 시도해주세요");
+                                      Get.snackbar("회원가입 실패", "입력하신 연락처가 이미 존재하거나 적절히 입력되지 않았습니다\n다시 시도해주세요");
                                     }
                                   });
                                 } else {
