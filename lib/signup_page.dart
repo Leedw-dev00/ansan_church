@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class SignupPage extends StatefulWidget {
   const SignupPage({Key? key}) : super(key: key);
@@ -314,6 +315,7 @@ class _SignupPageState extends State<SignupPage> {
                                 TextButton(
                                   onPressed: (){
                                     print('자세히 보기');
+                                    _launchURL('http://flunyt.com/FLUNYT/use.html');
                                   },
                                   child: Text('자세히 보기', style:
                                     TextStyle(
@@ -350,6 +352,7 @@ class _SignupPageState extends State<SignupPage> {
                                 ),
                                 TextButton(
                                   onPressed: (){
+                                    _launchURL('http://flunyt.com/FLUNYT/privacy.html');
                                     print('자세히 보기');
                                   },
                                   child: Text('자세히 보기', style:
@@ -415,4 +418,7 @@ class _SignupPageState extends State<SignupPage> {
         )
     );
   }
+  void _launchURL(String url) async => await canLaunch(url)
+      ? await launch(url)
+      : Get.snackbar("오류", "주소를 열지 못했습니다");
 }
