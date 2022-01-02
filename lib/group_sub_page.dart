@@ -112,7 +112,7 @@ class _GroupSubState extends State<GroupSub> {
                                   radius: 150.0,
                                   lineWidth: 13.0,
                                   animation: true,
-                                  percent: doMember == 0 ? 0 : 1,
+                                  percent: allMember == 0 ? 0 : 1,
                                   center: Column(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
@@ -124,7 +124,7 @@ class _GroupSubState extends State<GroupSub> {
                                       ),
                                       SizedBox(height: 10),
                                       new Text(
-                                        "$doMember명",
+                                        "$allMember명",
                                         style: new TextStyle(
                                             color: Color(0xFF616CA1),
                                             fontSize: 31.0,

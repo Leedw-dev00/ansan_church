@@ -19,6 +19,8 @@ class _SignupPageState extends State<SignupPage> {
   bool _isChecked1 = false;
   bool _isChecked2 = false;
   bool _isChecked3 = false;
+  bool _isAgree = false;
+  bool _isAgree2 = false;
   String _Checked = "";
 
 
@@ -279,24 +281,110 @@ class _SignupPageState extends State<SignupPage> {
                               )
                             ),
                             SizedBox(height: 35),
+                            Divider(
+                              thickness: 0.5,
+                              height: 0.5,
+                              color: Color(0XFFa6a6a6),
+                            ),
+                            SizedBox(height: 10.0),
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: <Widget>[
+                                CustomCheckBox(
+                                  value: _isAgree,
+                                  shouldShowBorder: true,
+                                  borderColor: Color(0xFF616CA1),
+                                  checkedFillColor: Color(0xFF616CA1),
+                                  borderRadius: 5,
+                                  borderWidth: 1,
+                                  checkBoxSize: 16,
+                                  onChanged: (val) {
+                                    //do your stuff here
+                                    setState(() {
+                                      _isAgree = val;
+                                    });
+                                  },
+                                ),
+                                SizedBox(width: 5,),
+                                Text('[필수] 이용약관', style:
+                                TextStyle(
+                                    fontSize: 12.0
+                                  ),
+                                ),
+                                TextButton(
+                                  onPressed: (){
+                                    print('자세히 보기');
+                                  },
+                                  child: Text('자세히 보기', style:
+                                    TextStyle(
+                                      color: Colors.blueAccent
+                                    ),
+                                  ),
+                                )
+
+                              ],
+                            ),
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: <Widget>[
+                                CustomCheckBox(
+                                  value: _isAgree2,
+                                  shouldShowBorder: true,
+                                  borderColor: Color(0xFF616CA1),
+                                  checkedFillColor: Color(0xFF616CA1),
+                                  borderRadius: 5,
+                                  borderWidth: 1,
+                                  checkBoxSize: 16,
+                                  onChanged: (val) {
+                                    //do your stuff here
+                                    setState(() {
+                                      _isAgree2 = val;
+                                    });
+                                  },
+                                ),
+                                SizedBox(width: 5,),
+                                Text('[필수] 개인정보정책', style:
+                                TextStyle(
+                                    fontSize: 12.0
+                                ),
+                                ),
+                                TextButton(
+                                  onPressed: (){
+                                    print('자세히 보기');
+                                  },
+                                  child: Text('자세히 보기', style:
+                                  TextStyle(
+                                      color: Colors.blueAccent
+                                  ),
+                                  ),
+                                )
+
+                              ],
+                            ),
+                            SizedBox(height: 35),
                             InkWell(
                               onTap: () {
                                 print(_Checked);
-                                if (nameController.text != "" &&
-                                    phoneController.text != "" &&
-                                    _Checked != "") {
-                                  SignUpData.getUserLogin(phoneController.text, nameController.text, _Checked)
-                                      .then((value) {
-                                    if (value == "true") {
-                                      print('success');
-                                      Get.off(LoginPage());
-                                    } else {
-                                      Get.snackbar("회원가입 실패", "입력하신 연락처가 이미 존재하거나 적절히 입력되지 않았습니다\n다시 시도해주세요");
-                                    }
-                                  });
-                                } else {
-                                  Get.snackbar("회원가입 실패", "빈칸을 모두 채워주세요");
+                                if(_isAgree && _isAgree2){
+                                  if(nameController.text != "" &&
+                                      phoneController.text != "" &&
+                                      _Checked != "") {
+                                    SignUpData.getUserLogin(phoneController.text, nameController.text, _Checked)
+                                        .then((value) {
+                                      if (value == "true") {
+                                        print('success');
+                                        Get.off(LoginPage());
+                                      } else {
+                                        Get.snackbar("회원가입 실패", "입력하신 연락처가 이미 존재하거나 적절히 입력되지 않았습니다\n다시 시도해주세요",);
+                                      }
+                                    });
+                                  } else {
+                                    Get.snackbar("회원가입 실패", "빈칸을 모두 채워주세요");
+                                  }
+                                }else{
+                                  Get.snackbar("회원가입 실패", "이용약관 및 개인정보정책 동의는 필수사항입니다");
                                 }
+
                               },
                               child: Container(
                                 width: MediaQuery.of(context).size.width,
@@ -323,6 +411,8 @@ class _SignupPageState extends State<SignupPage> {
                   ),
                 ),
               ),
-            )));
+            )
+        )
+    );
   }
 }

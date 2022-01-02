@@ -144,7 +144,7 @@ class _GroupPageState extends State<GroupPage> {
                                                 CrossAxisAlignment.center,
                                             children: [
                                               Text(
-                                                '${index + 1} 그룹',
+                                                '${index + 1}그룹',
                                                 style: TextStyle(
                                                   fontFamily:
                                                   'NanumSquareR',
