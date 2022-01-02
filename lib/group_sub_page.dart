@@ -16,6 +16,7 @@ class GroupSub extends StatefulWidget {
 class _GroupSubState extends State<GroupSub> {
   int allMember = 0;
   int doMember = 0;
+  bool btn = false;
   List<AdminAbsentModel> absent = [];
 
   @override
@@ -192,13 +193,45 @@ class _GroupSubState extends State<GroupSub> {
                           ],
                         ),
                       ),
-                      SizedBox(height: 30),
+
                       Container(
                         padding: EdgeInsets.only(top: 30, left: 20, right: 20),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
+                            // Row(
+                            //   children: <Widget>[
+                            //     TextButton(
+                            //         onPressed: (){
+                            //           setState(() {
+                            //             btn = false;
+                            //           });
+                            //         },
+                            //         child: Text(
+                            //           '그룹 전체 회원 리스트',
+                            //           style: TextStyle(
+                            //             color: Color(btn == false ? 0xFF333E72 : 0xFFd6d6d6),
+                            //             fontFamily: 'SCDream7',
+                            //             fontSize: 17,
+                            //           ),
+                            //         ),
+                            //     ),
+                            //
+                            //
+                            //     SizedBox(width: 20.0,),
+                            //
+                            //     TextButton(
+                            //         onPressed: (){
+                            //           setState(() {
+                            //             btn = true;
+                            //           });
+                            //         },
+                            //         child:
+                            //     ),
+                            //   ],
+                            // ),
+                            SizedBox(height: 30),
                             Text(
                               '실행율 하향 리스트',
                               style: TextStyle(

@@ -39,19 +39,24 @@ class _HomeState extends State<Home> {
   List<Testimony> testimonyList = [];
   List<NoticeModel> noticeList = [];
 
-  bool progressCheck = false;
+  bool progressCheck = true;
   String checkDate = "0000-00-00";
 
   @override
   void initState() {
     print(controller.user.value.name);
-    ProgressData.getProgressCheck(controller.user.value.id.toString(),
-            DateFormat('yyyy-MM-dd').format(DateTime.now()))
-        .then((value) {
-      setState(() {
-        progressCheck = value;
-      });
-    });
+    // ProgressData.getProgressCheck(controller.user.value.id.toString(),
+    //         DateFormat('yyyy-MM-dd').format(DateTime.now()))
+    //     .then((value) {
+    //   setState(() {
+    //     if(progressChart.content2 == "오늘의 진도가 없습니다") {
+    //       progressCheck = true;
+    //     }else{
+    //       progressCheck = value;
+    //     }
+    //     // progressCheck = value;
+    //   });
+    // });
     ProgressData.getProgressMainChart("CURDATE()").then((value) {
       print("value : $value");
       if (value.isEmpty) {
@@ -61,8 +66,18 @@ class _HomeState extends State<Home> {
             content2: "오늘의 진도가 없습니다",
             footnote: "오늘의 각주가 없습니다",
             lifeStudy: "lifestudy");
+        setState(() {
+          progressCheck = true;
+        });
       } else {
         progressChart = value[0];
+        ProgressData.getProgressCheck(controller.user.value.id.toString(),
+            DateFormat('yyyy-MM-dd').format(DateTime.now()))
+            .then((value) {
+          setState(() {
+            progressCheck = value;
+          });
+        });
       }
       setState(() {});
     });
@@ -76,6 +91,7 @@ class _HomeState extends State<Home> {
         noticeList = value;
       });
     });
+
     super.initState();
   }
 
@@ -797,7 +813,8 @@ class _HomeState extends State<Home> {
                                             MainAxisAlignment.center,
                                         children: [
                                           Text(
-                                            progressCheck ? '체크완료' : '체크',
+                                            progressCheck ? ''
+                                                '체크완료' : '체크',
                                             style: TextStyle(
                                               color: Colors.white,
                                               fontFamily: 'NanumSquareB',

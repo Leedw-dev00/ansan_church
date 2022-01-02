@@ -298,204 +298,205 @@ class _JindoChartState extends State<JindoChart> {
                                               borderWidth: 1,
                                               checkBoxSize: 16,
                                               onChanged: (val) {
-                                                if (val) {
-                                                  Get.dialog(
-                                                    AlertDialog(
-                                                      insetPadding:
-                                                          EdgeInsets.symmetric(
-                                                              horizontal: 20),
-                                                      shape: RoundedRectangleBorder(
-                                                          borderRadius:
-                                                              BorderRadius.all(
-                                                                  Radius.circular(
-                                                                      20.0))),
-                                                      title: Row(
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .spaceBetween,
-                                                        children: [
-                                                          Text(
-                                                            "진도 체크",
-                                                            style: TextStyle(
-                                                              fontFamily:
-                                                                  'NanumSquareB',
-                                                              color:
-                                                                  Colors.black,
-                                                              fontSize: 18,
-                                                            ),
-                                                          ),
-                                                          InkWell(
-                                                            onTap: () {
-                                                              Navigator.pop(
-                                                                  context);
-                                                            },
-                                                            child: Icon(
-                                                              CupertinoIcons
-                                                                  .xmark,
-                                                              size: 17,
-                                                            ),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                      content: Column(
-                                                        mainAxisSize:
-                                                            MainAxisSize.min,
-                                                        children: [
-                                                          Container(
-                                                              width: double
-                                                                  .infinity,
-                                                              padding:
-                                                                  EdgeInsets
-                                                                      .all(10),
-                                                              decoration:
-                                                                  BoxDecoration(
-                                                                color: Color(
-                                                                    0xFFF7F7F7),
-                                                                boxShadow: [
-                                                                  BoxShadow(
-                                                                    color: Colors
-                                                                        .black26,
-                                                                    blurRadius:
-                                                                        5,
-                                                                    offset:
-                                                                        const Offset(
-                                                                            2,
-                                                                            2),
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                              child: Text(
-                                                                "진도 체크를 하시겠습니까?",
-                                                                style:
-                                                                    TextStyle(
-                                                                  fontSize: 15,
-                                                                ),
-                                                              )),
-                                                          SizedBox(height: 20),
-                                                          Row(
-                                                            children: [
-                                                              Expanded(
-                                                                child: InkWell(
-                                                                  onTap: () {
-                                                                    Get.back();
-                                                                  },
-                                                                  child:
-                                                                      Container(
-                                                                    width: MediaQuery.of(
-                                                                            context)
-                                                                        .size
-                                                                        .width,
-                                                                    height: 35,
-                                                                    decoration:
-                                                                        BoxDecoration(
-                                                                      color: Colors
-                                                                          .grey,
-                                                                      borderRadius:
-                                                                          BorderRadius.circular(
-                                                                              5),
-                                                                    ),
-                                                                    alignment:
-                                                                        Alignment
-                                                                            .center,
-                                                                    child:
-                                                                        FittedBox(
-                                                                      child:
-                                                                          Text(
-                                                                        "닫기",
-                                                                        style:
-                                                                            TextStyle(
-                                                                          color:
-                                                                              Colors.white,
-                                                                          fontWeight:
-                                                                              FontWeight.w500,
-                                                                          fontFamily:
-                                                                              'NanumSquareB',
-                                                                        ),
-                                                                      ),
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                              ),
-                                                              SizedBox(
-                                                                width: 10,
-                                                              ),
-                                                              Expanded(
-                                                                child: InkWell(
-                                                                  onTap: () {
-                                                                    ProgressData.putProgressCheck(
-                                                                            controller.user.value.id
-                                                                                .toString(),
-                                                                            _pList[index]
-                                                                                .date,
-                                                                            _pList[index]
-                                                                                .id)
-                                                                        .then(
-                                                                            (value) {
-                                                                      if (value) {
-                                                                        ProgressData.getProgressAllChart(year.toString(),
-                                                                                month.toString())
-                                                                            .then((value) {
-                                                                          setState(
-                                                                              () {
-                                                                            _pList =
-                                                                                value;
-                                                                          });
-                                                                          Get.back();
-                                                                          Get.snackbar(
-                                                                              "성공",
-                                                                              "체크했습니다");
-                                                                        });
-                                                                      } else {
-                                                                        Get.snackbar(
-                                                                            "실패",
-                                                                            "오류가 났습니다");
-                                                                      }
-                                                                    });
-                                                                  },
-                                                                  child:
-                                                                      Container(
-                                                                    width: MediaQuery.of(
-                                                                            context)
-                                                                        .size
-                                                                        .width,
-                                                                    height: 35,
-                                                                    decoration:
-                                                                        BoxDecoration(
-                                                                      color: Color(
-                                                                          0xFF8B90AB),
-                                                                      borderRadius:
-                                                                          BorderRadius.circular(
-                                                                              5),
-                                                                    ),
-                                                                    alignment:
-                                                                        Alignment
-                                                                            .center,
-                                                                    child:
-                                                                        FittedBox(
-                                                                      child:
-                                                                          Text(
-                                                                        "체크하기",
-                                                                        style:
-                                                                            TextStyle(
-                                                                          color:
-                                                                              Colors.white,
-                                                                          fontWeight:
-                                                                              FontWeight.w500,
-                                                                          fontFamily:
-                                                                              'NanumSquareB',
-                                                                        ),
-                                                                      ),
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        ],
-                                                      ),
-                                                    ),
-                                                  );
-                                                }
+                                                print('check');
+                                                // if (val) {
+                                                //   Get.dialog(
+                                                //     AlertDialog(
+                                                //       insetPadding:
+                                                //           EdgeInsets.symmetric(
+                                                //               horizontal: 20),
+                                                //       shape: RoundedRectangleBorder(
+                                                //           borderRadius:
+                                                //               BorderRadius.all(
+                                                //                   Radius.circular(
+                                                //                       20.0))),
+                                                //       title: Row(
+                                                //         mainAxisAlignment:
+                                                //             MainAxisAlignment
+                                                //                 .spaceBetween,
+                                                //         children: [
+                                                //           Text(
+                                                //             "진도 체크",
+                                                //             style: TextStyle(
+                                                //               fontFamily:
+                                                //                   'NanumSquareB',
+                                                //               color:
+                                                //                   Colors.black,
+                                                //               fontSize: 18,
+                                                //             ),
+                                                //           ),
+                                                //           InkWell(
+                                                //             onTap: () {
+                                                //               Navigator.pop(
+                                                //                   context);
+                                                //             },
+                                                //             child: Icon(
+                                                //               CupertinoIcons
+                                                //                   .xmark,
+                                                //               size: 17,
+                                                //             ),
+                                                //           ),
+                                                //         ],
+                                                //       ),
+                                                //       content: Column(
+                                                //         mainAxisSize:
+                                                //             MainAxisSize.min,
+                                                //         children: [
+                                                //           Container(
+                                                //               width: double
+                                                //                   .infinity,
+                                                //               padding:
+                                                //                   EdgeInsets
+                                                //                       .all(10),
+                                                //               decoration:
+                                                //                   BoxDecoration(
+                                                //                 color: Color(
+                                                //                     0xFFF7F7F7),
+                                                //                 boxShadow: [
+                                                //                   BoxShadow(
+                                                //                     color: Colors
+                                                //                         .black26,
+                                                //                     blurRadius:
+                                                //                         5,
+                                                //                     offset:
+                                                //                         const Offset(
+                                                //                             2,
+                                                //                             2),
+                                                //                   ),
+                                                //                 ],
+                                                //               ),
+                                                //               child: Text(
+                                                //                 "진도 체크를 하시겠습니까?",
+                                                //                 style:
+                                                //                     TextStyle(
+                                                //                   fontSize: 15,
+                                                //                 ),
+                                                //               )),
+                                                //           SizedBox(height: 20),
+                                                //           Row(
+                                                //             children: [
+                                                //               Expanded(
+                                                //                 child: InkWell(
+                                                //                   onTap: () {
+                                                //                     Get.back();
+                                                //                   },
+                                                //                   child:
+                                                //                       Container(
+                                                //                     width: MediaQuery.of(
+                                                //                             context)
+                                                //                         .size
+                                                //                         .width,
+                                                //                     height: 35,
+                                                //                     decoration:
+                                                //                         BoxDecoration(
+                                                //                       color: Colors
+                                                //                           .grey,
+                                                //                       borderRadius:
+                                                //                           BorderRadius.circular(
+                                                //                               5),
+                                                //                     ),
+                                                //                     alignment:
+                                                //                         Alignment
+                                                //                             .center,
+                                                //                     child:
+                                                //                         FittedBox(
+                                                //                       child:
+                                                //                           Text(
+                                                //                         "닫기",
+                                                //                         style:
+                                                //                             TextStyle(
+                                                //                           color:
+                                                //                               Colors.white,
+                                                //                           fontWeight:
+                                                //                               FontWeight.w500,
+                                                //                           fontFamily:
+                                                //                               'NanumSquareB',
+                                                //                         ),
+                                                //                       ),
+                                                //                     ),
+                                                //                   ),
+                                                //                 ),
+                                                //               ),
+                                                //               SizedBox(
+                                                //                 width: 10,
+                                                //               ),
+                                                //               Expanded(
+                                                //                 child: InkWell(
+                                                //                   onTap: () {
+                                                //                     ProgressData.putProgressCheck(
+                                                //                             controller.user.value.id
+                                                //                                 .toString(),
+                                                //                             _pList[index]
+                                                //                                 .date,
+                                                //                             _pList[index]
+                                                //                                 .id)
+                                                //                         .then(
+                                                //                             (value) {
+                                                //                       if (value) {
+                                                //                         ProgressData.getProgressAllChart(year.toString(),
+                                                //                                 month.toString())
+                                                //                             .then((value) {
+                                                //                           setState(
+                                                //                               () {
+                                                //                             _pList =
+                                                //                                 value;
+                                                //                           });
+                                                //                           Get.back();
+                                                //                           Get.snackbar(
+                                                //                               "성공",
+                                                //                               "체크했습니다");
+                                                //                         });
+                                                //                       } else {
+                                                //                         Get.snackbar(
+                                                //                             "실패",
+                                                //                             "오류가 났습니다");
+                                                //                       }
+                                                //                     });
+                                                //                   },
+                                                //                   child:
+                                                //                       Container(
+                                                //                     width: MediaQuery.of(
+                                                //                             context)
+                                                //                         .size
+                                                //                         .width,
+                                                //                     height: 35,
+                                                //                     decoration:
+                                                //                         BoxDecoration(
+                                                //                       color: Color(
+                                                //                           0xFF8B90AB),
+                                                //                       borderRadius:
+                                                //                           BorderRadius.circular(
+                                                //                               5),
+                                                //                     ),
+                                                //                     alignment:
+                                                //                         Alignment
+                                                //                             .center,
+                                                //                     child:
+                                                //                         FittedBox(
+                                                //                       child:
+                                                //                           Text(
+                                                //                         "체크하기",
+                                                //                         style:
+                                                //                             TextStyle(
+                                                //                           color:
+                                                //                               Colors.white,
+                                                //                           fontWeight:
+                                                //                               FontWeight.w500,
+                                                //                           fontFamily:
+                                                //                               'NanumSquareB',
+                                                //                         ),
+                                                //                       ),
+                                                //                     ),
+                                                //                   ),
+                                                //                 ),
+                                                //               ),
+                                                //             ],
+                                                //           ),
+                                                //         ],
+                                                //       ),
+                                                //     ),
+                                                //   );
+                                                // }
                                               },
                                             ),
                                           ),

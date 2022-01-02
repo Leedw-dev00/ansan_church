@@ -8,6 +8,7 @@ class AdminMemberData {
   static const ROOT = "http://foune76.cafe24.com/admin.php";
   static const MEMBER_ACTION = "member";
   static const GROUP_ACTION = "group";
+  static const GROUP_AllACTION = "groupAllList";
   static const GROUP_LIST_ACTION = "groupList";
   static const ALL_ACTION = "all";
   static const ALL_LIST_ACTION = "allList";
@@ -29,6 +30,7 @@ class AdminMemberData {
       return <AdminMember>[];
     }
   }
+
 
   static Future<List<String>> getGroup(String groupName) async {
     try {

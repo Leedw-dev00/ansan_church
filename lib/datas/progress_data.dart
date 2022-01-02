@@ -64,7 +64,7 @@ class ProgressData {
     try {
       var map = Map<String, dynamic>();
       map['action'] = LIST_ACTION;
-      map['year'] = year == "1" ? "2021" : "2022";
+      map['year'] = year == "1" ? "2022" : "2023";
       map['month'] = month;
       map['memberid'] = controller.user.value.id.toString();
       final response = await http.post(Uri.parse(ROOT), body: map);

@@ -124,7 +124,7 @@ class _AllModeState extends State<AllMode> {
                                       ),
                                       SizedBox(height: 10),
                                       new Text(
-                                        "$doMember명",
+                                        "$allMember명",
                                         style: new TextStyle(
                                             color: Color(0xFF616CA1),
                                             fontSize: 31.0,
